@@ -1,0 +1,13 @@
+def newton_method(func, derivative, initial_guess, tolerance=1e-6, max_iterations=100):
+    x = initial_guess
+    iteration = 0
+
+    while abs(func(x)) > tolerance and iteration < max_iterations:
+        x = x - func(x) / derivative(x)
+        iteration += 1
+
+    return x
+
+# Example usage: Finding the square root of 2
+result_sqrt2 = newton_method(lambda x: x**2 - 2, lambda x: 2 * x, initial_guess=1.0)
+print("Square Root of 2:", result_sqrt2)
